@@ -40,3 +40,16 @@ steps:
     provider: 'azurerm'
     command: 'apply'
     environmentServiceNameAzureRM: 'S2-Visual Studio Ultimate with MSDN(e442b2de-cb70-403f-ac05-5f1d661fb7fa)'
+
+- task: SqlAzureDacpacDeployment@1
+  displayName: 'Run SQL-script'
+  inputs:
+    azureSubscription: 'S2-Visual Studio Ultimate with MSDN(e442b2de-cb70-403f-ac05-5f1d661fb7fa)'
+    AuthenticationType: 'server'
+    ServerName: 'sqlservermonzax679e6e9.database.windows.net,1433'
+    DatabaseName: 'DBA42'
+    SqlUsername: 'admindba'
+    SqlPassword: 'ABCabc123.42'
+    deployType: 'InlineSqlTask'
+    SqlInline: 'dba42.sql'
+    IpDetectionMethod: 'AutoDetect'
