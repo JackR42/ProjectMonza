@@ -1,5 +1,4 @@
-select ServerName=@@ServerName, DatabaseName=DB_NAME(), UserName=suser_sname()
-go
+-- select ServerName=@@ServerName, DatabaseName=DB_NAME(), UserName=suser_sname()
 drop table if exists t42
 go
 create table t42(
