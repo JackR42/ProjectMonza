@@ -1,5 +1,7 @@
 select ServerName=@@ServerName, DatabaseName=DB_NAME(), UserName=suser_sname()
 go
+drop table if exists t42
+go
 create table t42(
    c1 int primary key,
    c2 char(32)
