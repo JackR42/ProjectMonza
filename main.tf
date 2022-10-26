@@ -33,4 +33,5 @@ resource "azurerm_sql_firewall_rule" "projectmonza" {
   resource_group_name = azurerm_resource_group.projectmonza.name
   server_name         = azurerm_mssql_server.projectmonza.name
   start_ip_address    = "91.205.194.1"
-end
+  end_ip_address      = "91.205.194.1"
+}
