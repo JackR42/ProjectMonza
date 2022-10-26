@@ -8,5 +8,5 @@ go
 insert into t42 values(1, 'Monza')
 insert into t42 values(2, 'Fortytwo')
 go
-select * from dbo.t42
+select * from t42
 go
