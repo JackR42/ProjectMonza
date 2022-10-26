@@ -26,3 +26,11 @@ resource "azurerm_sql_database" "projectmonza" {
   location            = azurerm_resource_group.projectmonza.location
   server_name         = azurerm_mssql_server.projectmonza.name
 }
+
+# Create FW rule to allow access from own IP address to the SQL Instance
+resource "azurerm_sql_firewall_rule" "projectmonza" {
+  name                = "FirewallRule1"
+  resource_group_name = azurerm_resource_group.projectmonza.name
+  server_name         = azurerm_mssql_server.projectmonza.name
+  start_ip_address    = "91.205.194.1"
+end
