@@ -28,7 +28,7 @@ resource "azurerm_sql_database" "projectmonza" {
 }
 
 # Create FW rule to allow access from own IP address to the SQL Instance
-resource "azurerm_sql_firewall_rule" "projectmonza" {
+resource "azurerm_sql_firewall_rule" "projectmonza1" {
   name                = "FirewallRule1"
   resource_group_name = azurerm_resource_group.projectmonza.name
   server_name         = azurerm_mssql_server.projectmonza.name
@@ -37,7 +37,7 @@ resource "azurerm_sql_firewall_rule" "projectmonza" {
 }
 
 # Create FW rule to allow access from internal Azure services to the SQL Instance
-resource "azurerm_sql_firewall_rule" "projectmonza" {
+resource "azurerm_sql_firewall_rule" "projectmonza2" {
   name                = "FirewallRule2"
   resource_group_name = azurerm_resource_group.projectmonza.name
   server_name         = azurerm_mssql_server.projectmonza.name
