@@ -10,14 +10,19 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, Project Monza!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
 
 - task: TerraformInstaller@0
+  displayName: 'Terraform install'
   inputs:
     terraformVersion: 'latest'
+
+- task: TerraformTaskV3@3
+  displayName: 'Terraform Init'
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    backendServiceArm: 'S2-Visual Studio Ultimate with MSDN(e442b2de-cb70-403f-ac05-5f1d661fb7fa)'
+    backendAzureRmResourceGroupName: 'S2-RG-CORE'
+    backendAzureRmStorageAccountName: 's2rgcorestorageaccount'
+    backendAzureRmContainerName: 's2-rg-core-sa-container-projectmonza'
+    backendAzureRmKey: 'main.tf'
